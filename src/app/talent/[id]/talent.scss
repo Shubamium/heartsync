@@ -2,6 +2,8 @@
   background: url("/b/grid.png"), var(--bg);
   background-blend-mode: soft-light;
   background-size: 1400px;
+  position: relative;
+  z-index: 10;
   #display {
     display: flex;
     justify-content: space-between;
@@ -9,7 +11,50 @@
     padding-bottom: 0;
     padding-top: 3em;
     align-items: normal;
-    height: 900px;
+    height: 1000px;
+    position: relative;
+    z-index: 1;
+
+    .strokebar {
+      position: absolute;
+      width: 100%;
+      height: 600px;
+      bottom: -10%;
+      left: 0%;
+      border: 5px dashed var(--br);
+      border-radius: 2em;
+      scale: 0.7;
+      transform-origin: bottom center;
+      z-index: 10;
+      user-select: none;
+      pointer-events: none;
+    }
+    .ttl {
+      position: absolute;
+      left: 0%;
+      top: 0%;
+      z-index: -2;
+    }
+    .ttr {
+      position: absolute;
+      right: 0%;
+      top: 0%;
+      z-index: -2;
+    }
+    .tgl {
+      position: absolute;
+      left: 0%;
+      top: 10%;
+      z-index: -2;
+      height: 80%;
+    }
+    .tgr {
+      position: absolute;
+      right: 0%;
+      top: 10%;
+      height: 80%;
+      z-index: -2;
+    }
     .l {
       background: white;
       max-width: 600px;
@@ -18,6 +63,13 @@
       padding: 4%;
       border-radius: 2em 2em 0 0;
       margin-top: 50px;
+      position: relative;
+      .pkd {
+        position: absolute;
+        left: 100%;
+        top: 20%;
+        // height: 200px;
+      }
       .info {
         position: relative;
 
@@ -68,6 +120,7 @@
       left: 0%;
       user-select: none;
       pointer-events: none;
+      z-index: 20;
       .tal {
         position: absolute;
         width: 100%;
@@ -96,6 +149,8 @@
       box-shadow: 0px 0px 15px #2c2c2c33;
       justify-content: center;
       max-width: 600px;
+
+      z-index: 120;
       .line {
         padding: 1em;
         p {
@@ -120,15 +175,43 @@
       }
     }
     .r {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      .th {
+        position: absolute;
+        z-index: -2;
+        right: 0%;
+        top: 30%;
+      }
       .next-tal {
         background: url("/b/dots_1.png"), #ff92a7;
         background-size: 300px;
         background-blend-mode: lighten;
-        border: 3px solid white;
+        border: 5px solid white;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.212);
         border-radius: 0.55em;
         align-items: center;
         display: grid;
         grid-template-columns: 250px 100px;
+        position: relative;
+        line-height: 0.9;
+        &:hover {
+          .stroke {
+            clip-path: inset(0 0 0 0);
+          }
+        }
+        .stroke {
+          position: absolute;
+          right: 100%;
+          clip-path: inset(0 0 0 100%);
+          transition: all 500ms ease;
+          path {
+            fill: var(--dp);
+            color: white;
+            stroke: var(--dp);
+          }
+        }
         .info {
           padding: 0.25em 1em;
           h2 {
@@ -156,11 +239,13 @@
         flex-direction: column;
         margin: 2em 0;
         gap: 0.5em;
+
         .i {
           background: url("/b/dots_1.png"), #ff92a7;
           background-size: 300px;
           background-blend-mode: lighten;
-          border: 3px solid white;
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.212);
+          border: 5px solid white;
           border-radius: 0.55em;
           min-width: 250px;
           text-align: right;
@@ -178,6 +263,112 @@
             font-family: var(--fontG);
             font-weight: bold;
             text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.274);
+          }
+        }
+      }
+
+      .tsides {
+        position: relative;
+        margin-top: 20px;
+        z-index: 1;
+        .spe {
+          position: absolute;
+          top: -14%;
+          right: 0%;
+          z-index: 10;
+        }
+        .top {
+          height: 130px;
+          width: 340px;
+          position: relative;
+          z-index: 1;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            scale: 1.05 1.09;
+            clip-path: polygon(
+              0 0,
+              100% 0,
+              100% 70%,
+              72% 72%,
+              57% 100%,
+              0 100%
+            );
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background: url("/b/dots_1.png");
+            z-index: 10;
+            clip-path: polygon(
+              0 0,
+              100% 0,
+              100% 69%,
+              68% 69%,
+              57% 100%,
+              0 100%
+            );
+            background-size: 200px;
+          }
+          .art {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            filter: grayscale(100%) brightness(80%);
+            clip-path: polygon(
+              0 0,
+              100% 0,
+              100% 69%,
+              68% 69%,
+              57% 100%,
+              0 100%
+            );
+          }
+          &.bottom {
+            margin-top: -20px;
+            transform: translateX(30%) scale(0.8);
+
+            &::before {
+              // clip-path: #;
+              clip-path: polygon(
+                49% 0,
+                100% 0,
+                100% 100%,
+                0 100%,
+                0 30%,
+                39% 30%
+              );
+            }
+            &::after {
+              clip-path: polygon(
+                49% 0,
+                100% 0,
+                100% 100%,
+                0 100%,
+                0 34%,
+                41% 34%
+              );
+            }
+            .art {
+              clip-path: polygon(
+                49% 0,
+                100% 0,
+                100% 100%,
+                0 100%,
+                0 34%,
+                41% 34%
+              );
+            }
           }
         }
       }

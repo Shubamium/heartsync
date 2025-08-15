@@ -8,6 +8,8 @@ export default function page({}: Props) {
   return (
     <main id="p_audi">
       <section id="main">
+        <img src="/d/adl.png" alt="" className="adl" />
+        <img src="/d/adr.png" alt="" className="adr" />
         <div className="confine">
           <div className="l">
             <img src="/g/logo_w.png" alt="" className="logo" />
@@ -30,6 +32,9 @@ export default function page({}: Props) {
       </section>
 
       <section id="requirements">
+        <img src="/d/arl.png" alt="" className="arl" />
+        <img src="/d/arl.png" alt="" className="arr" />
+
         <div className="rh">
           <h2>REQUIREMENTS</h2>
         </div>

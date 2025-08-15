@@ -6,12 +6,61 @@ import "./about.scss";
 export default function page({}: Props) {
   return (
     <main id="p_about">
+      <img src="/d/pkd.png" alt="" className="pkd pl" />
+      <img src="/d/pkd.png" alt="" className="pkd pr" />
+
       <section id="mission">
         <div className="confine">
           <div className="l">
             <div className="heading">
               <h2 className="sh">OUR</h2>
-              <h2 className="hb">MISSION</h2>
+              <h2 className="hb">
+                MISSION{" "}
+                <svg
+                  width="195"
+                  height="63"
+                  viewBox="0 0 195 63"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M112.718 60.629L100.38 27.3506L91.8505 44.7735L83.2484 33.4741L23.6353 33.7657L23.6171 29.5558L85.326 29.2642L91.0668 36.8093L100.926 16.6891L112.171 47.0333L124.819 2L134.697 29.5558H161.961V33.7657H131.744L125.311 15.8144L112.718 60.629Z"
+                    fill="#FB3965"
+                    stroke="#FB3965"
+                    strokeMiterlimit="10"
+                  />
+                  <path
+                    d="M18.5506 29.592H8.29004V33.8202H18.5506V29.592Z"
+                    fill="#FB3965"
+                    stroke="#FB3965"
+                    strokeMiterlimit="10"
+                  />
+                  <path
+                    d="M177.343 29.592H167.082V33.8202H177.343V29.592Z"
+                    fill="#FB3965"
+                    stroke="#FB3965"
+                    strokeMiterlimit="10"
+                  />
+                  <path
+                    d="M186.692 29.592H182.464V33.8202H186.692V29.592Z"
+                    fill="#FB3965"
+                    stroke="#FB3965"
+                    strokeMiterlimit="10"
+                  />
+                  <path
+                    d="M194 29.592H191.813V33.8202H194V29.592Z"
+                    fill="#FB3965"
+                    stroke="#FB3965"
+                    strokeMiterlimit="10"
+                  />
+                  <path
+                    d="M3.18697 29.592H1V33.8202H3.18697V29.592Z"
+                    fill="#FB3965"
+                    stroke="#FB3965"
+                    strokeMiterlimit="10"
+                  />
+                </svg>
+              </h2>
               <p>
                 HeartSync is a talent agency that focuses on content that
                 provides comfort to the world. Each of our talents have their
@@ -33,6 +82,7 @@ export default function page({}: Props) {
         <div className="panel">
           <img src="/g/stl.png" alt="" className="stl" />
           <div className="content">
+            <img src="/d/star2.png" alt="" className="star" />
             <h2 className="sh">OUR</h2>
             <h2 className="h">STORY</h2>
             <p>
@@ -49,10 +99,59 @@ export default function page({}: Props) {
         </div>
       </section>
       <section id="staff">
+        <img src="/d/grid2.png" alt="" className="grid" />
+        <img src="/d/staffl.png" alt="" className="staffl" />
         <div className="staff-h">
+          <img src="/d/star.png" alt="" className="star" />
           <div className="panel">
             <h2 className="sh">HeartSync</h2>
-            <h2 className="mh">Meet Our Staff</h2>
+            <h2 className="mh">
+              Meet Our Staff{" "}
+              <svg
+                width="195"
+                height="63"
+                viewBox="0 0 195 63"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M112.718 60.629L100.38 27.3506L91.8505 44.7735L83.2484 33.4741L23.6353 33.7657L23.6171 29.5558L85.326 29.2642L91.0668 36.8093L100.926 16.6891L112.171 47.0333L124.819 2L134.697 29.5558H161.961V33.7657H131.744L125.311 15.8144L112.718 60.629Z"
+                  fill="#FB3965"
+                  stroke="#FB3965"
+                  strokeMiterlimit="10"
+                />
+                <path
+                  d="M18.5506 29.592H8.29004V33.8202H18.5506V29.592Z"
+                  fill="#FB3965"
+                  stroke="#FB3965"
+                  strokeMiterlimit="10"
+                />
+                <path
+                  d="M177.343 29.592H167.082V33.8202H177.343V29.592Z"
+                  fill="#FB3965"
+                  stroke="#FB3965"
+                  strokeMiterlimit="10"
+                />
+                <path
+                  d="M186.692 29.592H182.464V33.8202H186.692V29.592Z"
+                  fill="#FB3965"
+                  stroke="#FB3965"
+                  strokeMiterlimit="10"
+                />
+                <path
+                  d="M194 29.592H191.813V33.8202H194V29.592Z"
+                  fill="#FB3965"
+                  stroke="#FB3965"
+                  strokeMiterlimit="10"
+                />
+                <path
+                  d="M3.18697 29.592H1V33.8202H3.18697V29.592Z"
+                  fill="#FB3965"
+                  stroke="#FB3965"
+                  strokeMiterlimit="10"
+                />
+              </svg>
+            </h2>
           </div>
         </div>
         <div className="staff-l">

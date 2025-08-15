@@ -1,5 +1,4 @@
 #p_h {
-  min-height: 3000px;
   #herovid {
     overflow: hidden;
     // background: white;
@@ -11,6 +10,13 @@
       left: 1%;
       bottom: 0%;
       transform-origin: bottom;
+      @media screen and (max-width: 1280px) {
+        height: 300px;
+      }
+      @media screen and (max-width: 1024px) {
+        height: 160px;
+        left: 0%;
+      }
     }
     #vid {
       border-radius: 2em 2em 0 0em;
@@ -34,8 +40,17 @@
         height: auto;
         aspect-ratio: 16 / 9;
         border: 2px solid white;
-
         border-radius: 1em;
+
+        @media screen and (max-width: 1280px) {
+          width: 300px;
+        }
+        @media screen and (max-width: 1024px) {
+          width: 200px;
+        }
+        @media screen and (max-width: 550px) {
+          display: none;
+        }
       }
       &::before {
         content: "";
@@ -52,9 +67,98 @@
   }
   #hero {
     padding: 5em;
+    position: relative;
+    @media screen and (max-width: 1024px) {
+      padding: 3em;
+    }
+    @media screen and (max-width: 420px) {
+      padding: 1em;
+    }
+    .text-scroll {
+      background: url("/g/scroller.png");
+      background-repeat: repeat-x;
+      height: 300px;
+      width: 100%;
+      position: absolute;
+      left: 0%;
+      top: 30px;
+
+      animation: scroll 20s infinite linear alternate-reverse;
+      z-index: -1;
+
+      @media screen and (max-width: 1280px) {
+        animation-duration: 40s;
+      }
+      @keyframes scroll {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 100% 0;
+        }
+      }
+
+      &.b {
+        position: absolute;
+        top: initial;
+        bottom: -200px;
+        animation-direction: alternate;
+      }
+    }
+    .dgrid {
+      position: absolute;
+      bottom: 90%;
+      right: 10%;
+      z-index: 2;
+      width: 420px;
+
+      @media screen and (max-width: 1280px) {
+        width: 400px;
+        right: -10%;
+      }
+      @media screen and (max-width: 500px) {
+        width: 200px;
+      }
+    }
+
+    .herotl {
+      position: absolute;
+      top: -2%;
+      left: 0%;
+      width: 130px;
+      z-index: 5;
+      @media screen and (max-width: 600px) {
+        left: -20%;
+      }
+      @media screen and (max-width: 420px) {
+        display: none;
+      }
+    }
+    .herobl {
+      position: absolute;
+      bottom: -200px;
+      left: 0%;
+      width: 130px;
+      z-index: 5;
+      @media screen and (max-width: 600px) {
+        width: 50px;
+        bottom: -10%;
+      }
+    }
+    .herobr {
+      position: absolute;
+      bottom: -50px;
+      right: 0%;
+      width: 130px;
+      z-index: 5;
+      @media screen and (max-width: 600px) {
+        right: -20%;
+      }
+    }
     .panel {
       background: white;
       height: 800px;
+
       border-radius: 3em;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -64,6 +168,50 @@
       justify-content: center;
       overflow: hidden;
       rotate: -1deg;
+      position: relative;
+      z-index: 1;
+      @media screen and (max-width: 1660px) {
+        grid-template-columns: 1.4fr 1fr;
+      }
+      @media screen and (max-width: 1280px) {
+        height: 500px;
+      }
+      @media screen and (max-width: 1024px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+      }
+
+      .side {
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        user-select: none;
+        pointer-events: none;
+        @media screen and (max-width: 1440px) {
+          scale: 0.5;
+        }
+        &.sidel {
+          position: absolute;
+          left: -60px;
+          top: 0%;
+          object-fit: contain;
+          z-index: 10;
+          object-position: center;
+          width: 120px;
+        }
+        &.sider {
+          position: absolute;
+          z-index: 10;
+          right: -60px;
+          top: 0%;
+          object-fit: contain;
+          object-position: center;
+          width: 120px;
+        }
+      }
+
       .l {
         display: flex;
         // align-items: center;
@@ -72,6 +220,11 @@
         height: 100%;
         color: var(--br);
         justify-content: center;
+        padding-left: 10%;
+
+        @media screen and (max-width: 1024px) {
+          padding-top: 20%;
+        }
         &::before {
           content: "";
           position: absolute;
@@ -83,20 +236,49 @@
           background: url("/d/empty-heart.png") no-repeat center;
           user-select: none;
           pointer-events: none;
+          background-size: contain;
+          @media screen and (max-width: 1024px) {
+            top: 20%;
+            opacity: 0.5;
+          }
         }
         .ht {
           font-size: 4rem;
           font-family: var(--fontG);
           color: var(--p);
           line-height: 0.5;
+          @media screen and (max-width: 1600px) {
+            font-size: 3rem;
+          }
+          @media screen and (max-width: 600px) {
+            font-size: 2rem;
+          }
+          @media screen and (max-width: 500px) {
+            font-size: 1.5rem;
+          }
         }
         .hb {
           font-size: 6.5rem;
           line-height: 1;
+          @media screen and (max-width: 1600px) {
+            font-size: 4rem;
+          }
+          @media screen and (max-width: 600px) {
+            font-size: 3rem;
+          }
+          @media screen and (max-width: 500px) {
+            font-size: 1.9rem;
+          }
         }
         p {
           margin: 1em 0;
           font-size: 1.4rem;
+          @media screen and (max-width: 1600px) {
+            font-size: 1rem;
+          }
+          @media screen and (max-width: 600px) {
+            font-size: 0.9rem;
+          }
         }
 
         .btn-hero {
@@ -107,6 +289,10 @@
           border-radius: 1em;
           outline: 2px solid var(--br);
           outline-offset: 3px;
+          @media screen and (max-width: 500px) {
+            white-space: nowrap;
+            font-size: 1rem;
+          }
         }
         svg {
           clip-path: inset(0 100% 0 0);
@@ -120,6 +306,12 @@
               clip-path: inset(0 0% 0 0);
             }
           }
+          @media screen and (max-width: 600px) {
+            svg {
+              clip-path: inset(0 0% 0 0);
+              max-width: 120px;
+            }
+          }
         }
       }
       .r {
@@ -128,12 +320,46 @@
         position: relative;
         height: 100%;
         padding: 5%;
+
+        @media screen and (max-width: 1024px) {
+          height: 500px;
+          width: 100%;
+        }
+        @media screen and (max-width: 500px) {
+          margin-top: -50px;
+        }
+        .card {
+          animation: sway 2s infinite ease-in-out alternate-reverse;
+          filter: drop-shadow(0px 12px 0px rgba(97, 19, 58, 0.212));
+          width: 100%;
+          height: 100%;
+          scale: 0.8;
+          position: absolute;
+          top: 0%;
+          left: 0%;
+          object-fit: contain;
+          @keyframes sway {
+            from {
+              transform: rotate(0deg);
+              scale: 1.02;
+            }
+            to {
+              transform: rotate(5deg);
+            }
+          }
+        }
+
         .ha {
           position: absolute;
           width: 100%;
           height: 100%;
           object-fit: contain;
           object-position: bottom;
+          @media screen and (max-width: 500px) {
+            height: 600px;
+            top: 10%;
+            width: 500px;
+          }
         }
       }
     }

@@ -8,6 +8,17 @@
     margin: 50px 0;
     position: relative;
     z-index: 1;
+
+    .adl {
+      position: absolute;
+      left: 0%;
+      top: -100px;
+    }
+    .adr {
+      position: absolute;
+      right: 0%;
+      bottom: -100px;
+    }
     &::before {
       content: "";
       position: absolute;
@@ -51,7 +62,7 @@
           background: var(--dr);
           color: white;
 
-          display: flex;
+          display: flex !important;
           align-items: center;
           justify-content: center;
           align-items: center;
@@ -59,7 +70,11 @@
           padding: 0.25em 2em;
           border-radius: 1em;
           margin: 1em 0;
-          gap: 2em;
+          gap: 3em;
+          svg {
+            position: relative;
+            top: 10%;
+          }
         }
         p {
           font-size: 1.2rem;
@@ -74,6 +89,21 @@
     background: white;
     border-radius: 1em;
     padding: 2% 5%;
+    position: relative;
+    top: 0%;
+    .arl {
+      position: absolute;
+      left: 0%;
+      height: 100%;
+      transform: translateX(-70%);
+    }
+    .arr {
+      position: absolute;
+      transform: translateX(70%);
+      scale: -1;
+      right: 0%;
+      height: 100%;
+    }
 
     .rh {
       background: var(--pp);
@@ -215,7 +245,6 @@
         .sh {
           font-size: 3rem;
           line-height: 0.9;
-          margin-top: 1em;
         }
         svg {
           position: absolute;
@@ -244,12 +273,15 @@
         background: #fce7f3;
         border-radius: 1em;
         padding-bottom: 2em;
+        padding-top: 1em;
         .ap {
           padding: 1em 3em;
           color: var(--p);
           font-size: 1.4rem;
-          background: var(--p);
           color: white;
+          background: var(--p);
+          background-blend-mode: lighten;
+          background-size: 300px;
           min-height: 200px;
         }
         .qp {
@@ -259,8 +291,8 @@
           color: var(--dp);
           font-size: 2rem;
           line-height: 1;
+          font-weight: bold;
           .btn-drop {
-            background: var(--p);
             border-radius: 1em;
             color: white;
             width: 80px;

@@ -1,6 +1,7 @@
 #talent-list {
   background: white;
   padding-block: 3em;
+  margin-bottom: 3em;
   .th {
     padding-top: 1em;
     text-align: center;
@@ -18,6 +19,9 @@
       height: 80%;
       background: var(--pp);
       z-index: -1;
+      @media screen and (max-width: 600px) {
+        width: 100%;
+      }
     }
     .sh {
       color: var(--dp);
@@ -27,20 +31,33 @@
       font-weight: lighter;
     }
     .h {
-      font-size: 5rem;
+      font-size: 7rem;
       font-family: var(--fontG);
       color: var(--br);
       line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media screen and (max-width: 1024px) {
+        font-size: 4rem;
+      }
     }
   }
   .tl {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 4em;
+    @media screen and (max-width: 420px) {
+      padding: 1em;
+    }
     .tc {
       width: 350px;
       cursor: pointer;
+      @media screen and (max-width: 420px) {
+        width: 100%;
+      }
       &:hover {
         .artpart {
           .talart {
@@ -61,6 +78,9 @@
         height: 600px;
         position: relative;
         overflow: hidden;
+        @media screen and (max-width: 420px) {
+          height: 400px;
+        }
         &::before {
           content: "";
           position: absolute;
@@ -97,11 +117,17 @@
           font-weight: bold;
           color: var(--br);
           line-height: 1;
+          @media screen and (max-width: 500px) {
+            font-size: 2rem;
+          }
         }
         .t {
           font-size: 1.2rem;
           color: var(--dp);
           line-height: 1;
+          @media screen and (max-width: 500px) {
+            font-size: 1rem;
+          }
         }
         &::before {
           content: "";

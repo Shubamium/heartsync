@@ -12,16 +12,23 @@ export default function Home() {
           src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
           id="vid"
         ></video>
-        <button className="btn btn-scroll">
+        <a href="#hero" className="btn btn-scroll">
           <img src="/g/scrollbtn.png" alt="" />
-        </button>
+        </a>
 
         <div className="cycle">
           <img src="/g/pch.png" alt="" className="item" />
         </div>
       </section>
       <section id="hero">
+        <div className="text-scroll"></div>
+
+        <img src="/d/herotl.png" alt="" className="herotl" />
+        <img src="/d/herobl.png" alt="" className="herobl" />
+        <img src="/d/herobr.png" alt="" className="herobr" />
         <div className="panel">
+          <img src="/d/heroside.png" alt="" className="side sider" />
+          <img src="/d/heroside.png" alt="" className="side sidel" />
           <article className="l">
             <h2 className="ht">LET OUR HEARTS</h2>
             <h2 className="hb">BEAT IN SYNC</h2>
@@ -83,10 +90,12 @@ export default function Home() {
             </div>
           </article>
           <div className="r">
-            <img src="/g/hero-card.png" alt="" />
+            <img src="/g/hero-card.png" alt="" className="card" />
             <img src="/g/hero-art.png" alt="" className="ha" />
           </div>
         </div>
+        <img src="/d/grid1.png" alt="" className="dgrid" />
+        <div className="text-scroll b"></div>
       </section>
       <TalentList />
     </main>
