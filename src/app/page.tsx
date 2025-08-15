@@ -1,95 +1,94 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
+import Link from "next/link";
+import "./home.scss";
+import TalentList from "./components/talentList/TalentList";
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main id="p_h">
+      <section id="herovid">
+        <video
+          autoPlay
+          loop
+          muted
+          src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+          id="vid"
+        ></video>
+        <button className="btn btn-scroll">
+          <img src="/g/scrollbtn.png" alt="" />
+        </button>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+        <div className="cycle">
+          <img src="/g/pch.png" alt="" className="item" />
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+      <section id="hero">
+        <div className="panel">
+          <article className="l">
+            <h2 className="ht">LET OUR HEARTS</h2>
+            <h2 className="hb">BEAT IN SYNC</h2>
+            <p>
+              In our world, sometimes all you need is to
+              <strong>feel the heart of another</strong>. Our mission is to
+              connect fans with streamers on an even deeper level, letting us
+              all feel as one.
+            </p>
+
+            <div className="action">
+              <Link href={"/about"} className="btn btn-hero">
+                Learn more about us!
+              </Link>
+              <svg
+                width="195"
+                height="63"
+                viewBox="0 0 195 63"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M112.718 60.629L100.38 27.3506L91.8505 44.7735L83.2484 33.4741L23.6353 33.7657L23.6171 29.5558L85.326 29.2642L91.0668 36.8093L100.926 16.6891L112.171 47.0333L124.819 2L134.697 29.5558H161.961V33.7657H131.744L125.311 15.8144L112.718 60.629Z"
+                  fill="#FB3965"
+                  stroke="#FB3965"
+                  strokeMiterlimit="10"
+                />
+                <path
+                  d="M18.5506 29.592H8.29004V33.8202H18.5506V29.592Z"
+                  fill="#FB3965"
+                  stroke="#FB3965"
+                  strokeMiterlimit="10"
+                />
+                <path
+                  d="M177.343 29.592H167.082V33.8202H177.343V29.592Z"
+                  fill="#FB3965"
+                  stroke="#FB3965"
+                  strokeMiterlimit="10"
+                />
+                <path
+                  d="M186.692 29.592H182.464V33.8202H186.692V29.592Z"
+                  fill="#FB3965"
+                  stroke="#FB3965"
+                  strokeMiterlimit="10"
+                />
+                <path
+                  d="M194 29.592H191.813V33.8202H194V29.592Z"
+                  fill="#FB3965"
+                  stroke="#FB3965"
+                  strokeMiterlimit="10"
+                />
+                <path
+                  d="M3.18697 29.592H1V33.8202H3.18697V29.592Z"
+                  fill="#FB3965"
+                  stroke="#FB3965"
+                  strokeMiterlimit="10"
+                />
+              </svg>
+            </div>
+          </article>
+          <div className="r">
+            <img src="/g/hero-card.png" alt="" />
+            <img src="/g/hero-art.png" alt="" className="ha" />
+          </div>
+        </div>
+      </section>
+      <TalentList />
+    </main>
   );
 }

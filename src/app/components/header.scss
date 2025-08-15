@@ -1,0 +1,133 @@
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  padding: 1em 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  position: relative;
+  #hd-logo {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    z-index: 1;
+    display: block;
+    // background: red;
+    // border: 4px dashed var(--dr);
+    box-sizing: content-box;
+    padding: 0.5em;
+    display: flex;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      background: white;
+      border: 3px dashed var(--dr);
+      border-radius: 50%;
+      z-index: -1;
+      @keyframes speen {
+        from {
+          rotate: 0deg;
+        }
+        to {
+          rotate: 360deg;
+        }
+      }
+      animation: speen 15s infinite linear;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      position: relative;
+      left: 3px;
+      top: 5px;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: url("/b/awning.png");
+    // background: red;
+    background-repeat: repeat-x;
+    animation: awning 205s infinite linear;
+    rotate: -0.5deg;
+    @keyframes awning {
+      from {
+        background-position-x: 0px;
+      }
+      to {
+        background-position-x: 10000px;
+      }
+    }
+  }
+
+  gap: 3em;
+  #right,
+  #left {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    justify-content: center;
+
+    .htl {
+      position: absolute;
+      left: 0%;
+      max-height: 130px;
+      top: 0%;
+    }
+
+    .htr {
+      position: absolute;
+      right: 0%;
+      top: 0%;
+      max-height: 130px;
+    }
+    .btn-nav {
+      color: var(--p);
+      font-size: 1.4rem;
+      font-weight: bold;
+      padding: 0em 2.2em;
+      border-radius: 2em;
+      position: relative;
+      z-index: 100;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+
+        border-radius: 2em;
+        outline: 3px solid transparent;
+        transition: all 500ms ease;
+      }
+
+      &:hover,
+      &.act {
+        color: white;
+
+        &::before {
+          background: url("/b/dots_1.png"), var(--p);
+          background-size: 200px;
+          color: white;
+          background-blend-mode: lighten;
+          line-height: 1;
+          outline: 3px solid var(--p);
+          rotate: -3deg;
+          outline-offset: 5px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,186 @@
+#p_tal {
+  background: url("/b/grid.png"), var(--bg);
+  background-blend-mode: soft-light;
+  background-size: 1400px;
+  #display {
+    display: flex;
+    justify-content: space-between;
+    padding: 5%;
+    padding-bottom: 0;
+    padding-top: 3em;
+    align-items: normal;
+    height: 900px;
+    .l {
+      background: white;
+      max-width: 600px;
+      height: 100%;
+      color: var(--dp);
+      padding: 4%;
+      border-radius: 2em 2em 0 0;
+      margin-top: 50px;
+      .info {
+        position: relative;
+
+        .name {
+          font-size: 6rem;
+          font-family: var(--fontG);
+          position: relative;
+          line-height: 0.8;
+          .eh {
+            position: absolute;
+            top: 0%;
+            max-width: 100%;
+            left: 0%;
+            max-height: 100%;
+          }
+        }
+        .bio {
+          margin: 1em 0;
+          font-size: 1.3rem;
+        }
+        .contacts {
+          display: flex;
+          flex-direction: column;
+          gap: 1em;
+          max-width: fit-content;
+          margin-top: 20%;
+          .btn-tct {
+            background: #fb3965;
+            padding: 0.25em 3em;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            border-radius: 1em;
+            svg {
+              width: 50px;
+              height: 50px;
+            }
+          }
+        }
+      }
+    }
+    .tal-art {
+      width: 100%;
+      height: 1080px;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      user-select: none;
+      pointer-events: none;
+      .tal {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        // background: #fb3965;
+        object-position: 60% bottom;
+        user-select: none;
+        pointer-events: none;
+      }
+    }
+    .voiceline {
+      position: fixed;
+      bottom: 100px;
+      right: 0%;
+      background: url("/b/dots_1.png"), #ff92a7;
+      background-size: 300px;
+      background-blend-mode: lighten;
+      padding: 1em;
+      gap: 3em;
+      border: 4px solid white;
+      border-right: 0;
+      border-radius: 2em 0 0 2em;
+      display: flex;
+      align-items: center;
+      box-shadow: 0px 0px 15px #2c2c2c33;
+      justify-content: center;
+      max-width: 600px;
+      .line {
+        padding: 1em;
+        p {
+          font-size: 1.2rem;
+        }
+      }
+      .btn-play {
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        width: 60px;
+        height: 60px;
+        align-items: center;
+        justify-content: center;
+        color: var(--dp);
+        flex-shrink: 0;
+        box-shadow: 0px 0px 5px var(--dr);
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .r {
+      .next-tal {
+        background: url("/b/dots_1.png"), #ff92a7;
+        background-size: 300px;
+        background-blend-mode: lighten;
+        border: 3px solid white;
+        border-radius: 0.55em;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 250px 100px;
+        .info {
+          padding: 0.25em 1em;
+          h2 {
+            font-weight: bold;
+            font-size: 2rem;
+          }
+          p {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+          }
+        }
+        .pfp {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .il {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        flex-direction: column;
+        margin: 2em 0;
+        gap: 0.5em;
+        .i {
+          background: url("/b/dots_1.png"), #ff92a7;
+          background-size: 300px;
+          background-blend-mode: lighten;
+          border: 3px solid white;
+          border-radius: 0.55em;
+          min-width: 250px;
+          text-align: right;
+          padding: 0.2em 1em;
+
+          h2 {
+            text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.274);
+            font-weight: bolder;
+            font-size: 0.9rem;
+            margin-top: 0.25em;
+          }
+          p {
+            font-size: 2.3rem;
+            line-height: 0.8;
+            font-family: var(--fontG);
+            font-weight: bold;
+            text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.274);
+          }
+        }
+      }
+    }
+  }
+}

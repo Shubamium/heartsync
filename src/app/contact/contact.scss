@@ -1,0 +1,120 @@
+#p_contact {
+  padding: 5%;
+  #panel {
+    position: relative;
+    z-index: 1;
+    &::before {
+      background: white;
+      content: "";
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      rotate: -1deg;
+      border-radius: 2em;
+    }
+    color: var(--dp);
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    padding: 5%;
+    max-width: 1280px;
+    margin: 0 auto;
+    gap: 10%;
+    .l {
+      padding-top: 3em;
+      .logo {
+        max-width: 150px;
+        height: auto;
+      }
+      .sh {
+        font-size: 3rem;
+        font-family: var(--fontG);
+        line-height: 0.9;
+      }
+      .mh {
+        font-size: 4rem;
+        color: var(--br);
+        line-height: 0.9;
+        margin-bottom: 0.25em;
+      }
+      p {
+        color: var(--br);
+        font-size: 1.2rem;
+        margin: 1em 0;
+      }
+      .socials {
+        display: flex;
+        gap: 0.5em;
+        .btn-soc {
+          background: var(--br);
+          color: white;
+          padding: 0.25em;
+          border-radius: 0.55em;
+          width: 50px;
+          height: 50px;
+          svg {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+    .r {
+      background: var(--pp);
+      border-radius: 1em;
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      .input {
+        display: flex;
+        flex-direction: column;
+        background: var(--p);
+        padding: 1em;
+        border-radius: 0.5em;
+        label {
+          color: white;
+          font-weight: bold;
+          font-family: var(--fontG);
+        }
+        input,
+        textarea {
+          background: none;
+          outline: none;
+          font-family: var(--fontL);
+          padding: 0.25em 0;
+          font-size: 1.2rem;
+          border: none;
+          font-weight: bold;
+          border-bottom: 1px solid white;
+        }
+        textarea {
+          resize: none;
+          min-height: 200px;
+        }
+      }
+      .btn.send {
+        background: var(--p);
+        color: white;
+        border-radius: 1em;
+        font-weight: bold;
+        font-size: 1.2rem;
+        padding: 0.5em 1em;
+        display: flex;
+        justify-content: space-between;
+        outline: 2px solid var(--p);
+        outline-offset: 4px;
+        width: 250px;
+        margin: 0 auto;
+        margin-top: 1em;
+        margin-bottom: -30px;
+      }
+    }
+  }
+}
