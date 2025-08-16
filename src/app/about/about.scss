@@ -51,6 +51,14 @@
       margin: 0 auto;
       gap: 1em;
       align-items: center;
+
+      @media screen and (max-width: 1280px) {
+        padding: 2em;
+      }
+      @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+      }
       .l {
         .heading {
           .sh {
@@ -58,11 +66,18 @@
             color: var(--p);
             line-height: 0.6;
             font-family: var(--fontG);
+            @media screen and (max-width: 500px) {
+              font-size: 3.2rem;
+            }
           }
           .hb {
             font-size: 5rem;
             color: var(--br);
             line-height: 1;
+
+            @media screen and (max-width: 500px) {
+              font-size: 4rem;
+            }
           }
           p {
             color: var(--br);
@@ -96,6 +111,9 @@
       text-align: right;
       border-radius: 2em;
       position: relative;
+      @media screen and (max-width: 1080px) {
+        max-width: 80%;
+      }
       .stl,
       .str {
         position: absolute;
@@ -105,11 +123,19 @@
         right: 70%;
         top: 10%;
         height: 210px;
+        @media screen and (max-width: 768px) {
+          height: 100px;
+          right: 50%;
+        }
       }
       .str {
         left: 70%;
         top: 80%;
         height: 150px;
+        @media screen and (max-width: 768px) {
+          height: 80px;
+          left: 50%;
+        }
       }
       .content {
         display: flex;
@@ -123,19 +149,35 @@
           bottom: -90px;
           height: 130px;
           left: -10%;
+          @media screen and (max-width: 768px) {
+            height: 50px;
+          }
         }
       }
       .sh {
         font-size: 4rem;
         line-height: 0.9;
+        @media screen and (max-width: 768px) {
+          font-size: 2rem;
+        }
       }
       .h {
         font-size: 6rem;
         line-height: 0.9;
+        @media screen and (max-width: 768px) {
+          font-size: 2.5rem;
+        }
       }
       p {
         max-width: 70%;
         margin: 1em 0;
+        @media screen and (max-width: 768px) {
+          margin: 2em 0;
+          max-width: 100%;
+        }
+        @media screen and (max-width: 420px) {
+          font-size: 0.8rem;
+        }
       }
     }
   }
@@ -160,6 +202,9 @@
       padding: 1em;
       padding-left: 0;
       position: relative;
+      @media screen and (max-width: 550px) {
+        max-width: 98%;
+      }
       .star {
         position: absolute;
         top: -20%;
@@ -170,17 +215,48 @@
         border-radius: inherit;
         padding: 1em 2em;
         max-width: 85%;
+        @media screen and (max-width: 500px) {
+          max-width: 94%;
+        }
         .sh {
           font-size: 2rem;
           color: var(--dp);
           line-height: 0.1;
           margin-top: 1em;
+          @media screen and (max-width: 420px) {
+            font-size: 1.4rem;
+          }
         }
         .mh {
           font-size: 7rem;
           font-family: var(--fontG);
           color: var(--br);
           letter-spacing: -4px;
+          @media screen and (max-width: 1600px) {
+            font-size: 5rem;
+          }
+          @media screen and (max-width: 1440px) {
+            font-size: 4rem;
+            display: flex;
+            white-space: nowrap;
+            svg {
+              width: 100%;
+              margin-left: -0.2em;
+            }
+          }
+          @media screen and (max-width: 768px) {
+            font-size: 3rem;
+            line-height: 1;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 5px;
+            svg {
+              width: auto;
+            }
+          }
+          @media screen and (max-width: 420px) {
+            font-size: 2rem;
+          }
         }
       }
     }
@@ -198,13 +274,21 @@
         background: white;
         padding: 5%;
         gap: 2em 5%;
-
+        @media screen and (max-width: 1024px) {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 3em;
+          justify-content: space-around;
+        }
         .role {
           color: var(--br);
           font-weight: bold;
           font-size: 1.2rem;
           line-height: 1;
           margin-top: 2em;
+          @media screen and (max-width: 420px) {
+            font-size: 1.1rem;
+          }
         }
         .n {
           color: var(--dr);
@@ -212,11 +296,17 @@
           font-size: 2rem;
           font-weight: bold;
           font-family: var(--fontG);
+          @media screen and (max-width: 420px) {
+            font-size: 1.4rem;
+          }
         }
         .o {
           font-size: 1.4rem;
           color: var(--dp);
           opacity: 0.8;
+          @media screen and (max-width: 420px) {
+            font-size: 1.1rem;
+          }
         }
         .staff {
           width: 300px;
@@ -227,6 +317,9 @@
           text-align: center;
           color: var(--br);
           cursor: initial;
+          @media screen and (max-width: 1440px) {
+            width: 200px;
+          }
           &:hover {
             .art {
               animation: jelly 0.5s infinite alternate-reverse

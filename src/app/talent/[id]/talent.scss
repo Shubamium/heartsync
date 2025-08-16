@@ -4,6 +4,7 @@
   background-size: 1400px;
   position: relative;
   z-index: 10;
+  overflow: hidden;
   #display {
     display: flex;
     justify-content: space-between;
@@ -14,7 +15,30 @@
     height: 1000px;
     position: relative;
     z-index: 1;
-
+    @media screen and (max-width: 1280px) {
+      height: 1100px;
+    }
+    @media screen and (max-width: 1024px) {
+      gap: 2em;
+    }
+    @media screen and (max-width: 768px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 1500px;
+    }
+    @media screen and (max-width: 550px) {
+      display: flex;
+      flex-direction: column;
+      height: 1800px;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: auto;
+      padding-bottom: 1080px;
+    }
+    @media screen and (max-width: 420px) {
+      padding-bottom: 900px;
+      padding-top: 1em;
+    }
     .strokebar {
       position: absolute;
       width: 100%;
@@ -34,12 +58,18 @@
       left: 0%;
       top: 0%;
       z-index: -2;
+      @media screen and (max-width: 550px) {
+        max-width: 50%;
+      }
     }
     .ttr {
       position: absolute;
       right: 0%;
       top: 0%;
       z-index: -2;
+      @media screen and (max-width: 550px) {
+        max-width: 50%;
+      }
     }
     .tgl {
       position: absolute;
@@ -47,6 +77,11 @@
       top: 10%;
       z-index: -2;
       height: 80%;
+      user-select: none;
+      pointer-events: none;
+      @media screen and (max-width: 550px) {
+        height: 400px;
+      }
     }
     .tgr {
       position: absolute;
@@ -54,6 +89,11 @@
       top: 10%;
       height: 80%;
       z-index: -2;
+      pointer-events: none;
+      user-select: none;
+      @media screen and (max-width: 550px) {
+        height: 400px;
+      }
     }
     .l {
       background: white;
@@ -64,11 +104,21 @@
       border-radius: 2em 2em 0 0;
       margin-top: 50px;
       position: relative;
+      @media screen and (max-width: 1024px) {
+        padding: 2em;
+      }
+      @media screen and (max-width: 550px) {
+        height: auto;
+        border-radius: 2em;
+      }
       .pkd {
         position: absolute;
         left: 100%;
         top: 20%;
         // height: 200px;
+        @media screen and (max-width: 1024px) {
+          display: none;
+        }
       }
       .info {
         position: relative;
@@ -78,6 +128,12 @@
           font-family: var(--fontG);
           position: relative;
           line-height: 0.8;
+          @media screen and (max-width: 1024px) {
+            font-size: 4rem;
+          }
+          @media screen and (max-width: 768px) {
+            font-size: 3rem;
+          }
           .eh {
             position: absolute;
             top: 0%;
@@ -89,6 +145,12 @@
         .bio {
           margin: 1em 0;
           font-size: 1.3rem;
+          @media screen and (max-width: 1024px) {
+            font-size: 1.2rem;
+          }
+          @media screen and (max-width: 768px) {
+            font-size: 0.9rem;
+          }
         }
         .contacts {
           display: flex;
@@ -104,9 +166,17 @@
             align-items: center;
             gap: 1em;
             border-radius: 1em;
+            @media screen and (max-width: 1024px) {
+              padding: 0.25em 1.5em;
+              font-size: 0.9rem;
+            }
             svg {
               width: 50px;
               height: 50px;
+              @media screen and (max-width: 1024px) {
+                width: 30px;
+                height: 30px;
+              }
             }
           }
         }
@@ -121,6 +191,22 @@
       user-select: none;
       pointer-events: none;
       z-index: 20;
+      @media screen and (max-width: 1600px) {
+        top: 30%;
+      }
+      @media screen and (max-width: 1280px) {
+        top: 30%;
+      }
+      @media screen and (max-width: 768px) {
+        top: 40%;
+      }
+      @media screen and (max-width: 768px) {
+        top: initial;
+        bottom: 0%;
+      }
+      @media screen and (max-width: 420px) {
+        height: 700px;
+      }
       .tal {
         position: absolute;
         width: 100%;
@@ -130,6 +216,9 @@
         object-position: 60% bottom;
         user-select: none;
         pointer-events: none;
+        @media screen and (max-width: 768px) {
+          object-fit: cover;
+        }
       }
     }
     .voiceline {
@@ -151,10 +240,32 @@
       max-width: 600px;
 
       z-index: 120;
+      @media screen and (max-width: 1280px) {
+        position: absolute;
+        bottom: 100px;
+        z-index: 500;
+      }
+      @media screen and (max-width: 1280px) {
+        max-width: 400px;
+      }
+      @media screen and (max-width: 550px) {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 0.5em;
+      }
+      @media screen and (max-width: 420px) {
+        bottom: 690px;
+      }
       .line {
         padding: 1em;
+        @media screen and (max-width: 550px) {
+          padding: 0.25em;
+        }
         p {
           font-size: 1.2rem;
+          @media screen and (max-width: 1280px) {
+            font-size: 1rem;
+          }
         }
       }
       .btn-play {
@@ -178,11 +289,19 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      position: relative;
+      z-index: 1;
+
+      @media screen and (max-width: 550px) {
+        flex-direction: column-reverse;
+      }
       .th {
         position: absolute;
-        z-index: -2;
+        z-index: -5;
         right: 0%;
         top: 30%;
+        pointer-events: none;
+        user-select: none;
       }
       .next-tal {
         background: url("/b/dots_1.png"), #ff92a7;
@@ -196,6 +315,10 @@
         grid-template-columns: 250px 100px;
         position: relative;
         line-height: 0.9;
+        @media screen and (max-width: 1024px) {
+          grid-template-columns: 2fr 1fr;
+        }
+
         &:hover {
           .stroke {
             clip-path: inset(0 0 0 0);
@@ -214,9 +337,15 @@
         }
         .info {
           padding: 0.25em 1em;
+          @media screen and (max-width: 1024px) {
+            padding: 0.1em 0.5em;
+          }
           h2 {
             font-weight: bold;
             font-size: 2rem;
+            @media screen and (max-width: 1024px) {
+              font-size: 1.2rem;
+            }
           }
           p {
             font-size: 0.9rem;
@@ -239,7 +368,9 @@
         flex-direction: column;
         margin: 2em 0;
         gap: 0.5em;
-
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
         .i {
           background: url("/b/dots_1.png"), #ff92a7;
           background-size: 300px;
@@ -250,7 +381,13 @@
           min-width: 250px;
           text-align: right;
           padding: 0.2em 1em;
-
+          @media screen and (max-width: 1024px) {
+            min-width: 200px;
+          }
+          @media screen and (max-width: 550px) {
+            min-width: auto;
+            width: 100%;
+          }
           h2 {
             text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.274);
             font-weight: bolder;
@@ -263,6 +400,9 @@
             font-family: var(--fontG);
             font-weight: bold;
             text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.274);
+            @media screen and (max-width: 768px) {
+              font-size: 1.4rem;
+            }
           }
         }
       }
@@ -271,6 +411,10 @@
         position: relative;
         margin-top: 20px;
         z-index: 1;
+
+        @media screen and (max-width: 1024px) {
+          display: none;
+        }
         .spe {
           position: absolute;
           top: -14%;
