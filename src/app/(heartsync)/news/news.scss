@@ -96,8 +96,9 @@
         background: white;
         max-width: 100%;
         border-radius: 1em;
-        border: 2px solid var(--br);
+        border: 3px solid var(--br);
         margin-bottom: 1em;
+        object-fit: cover;
       }
 
       .d {
