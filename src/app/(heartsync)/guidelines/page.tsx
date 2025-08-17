@@ -2,7 +2,15 @@ import React from "react";
 
 type Props = {};
 import "./guidelines.scss";
-export default function page({}: Props) {
+import payloadConfig from "@/payload.config";
+import { getPayload } from "payload";
+import { RichText } from "@payloadcms/richtext-lexical/react";
+import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
+export default async function page({}: Props) {
+  const config = await payloadConfig;
+  const p = await getPayload({ config });
+  const g = await p.findGlobal({ slug: "guidelines" });
+
   return (
     <main id="p_guide">
       <div className="panel">
@@ -13,7 +21,8 @@ export default function page({}: Props) {
           </div>
         </div>
         <div className="r">
-          <h1 className="title">Secondary Creation Guidelines</h1>
+          <RichText data={g.guideline as SerializedEditorState} />
+          {/* <h1 className="title">Secondary Creation Guidelines</h1>
           <p>
             HeartSync LLC (hereinafter referred to as "the Company") has
             established the following guidelines to ensure that more people can
@@ -70,7 +79,7 @@ export default function page({}: Props) {
             </li>
             <li>HeartSync 17</li>
             <li>Any other content the Company deems inappropriate</li>
-          </ul>
+          </ul> */}
         </div>
       </div>
     </main>

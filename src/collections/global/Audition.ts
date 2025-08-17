@@ -6,6 +6,7 @@ const Audition: GlobalConfig = {
     {
       type: "checkbox",
       name: "status",
+      label: "Is Audition Open",
     },
     {
       name: "status-text",

@@ -1,7 +1,17 @@
 import Link from "next/link";
 import "./home.scss";
 import TalentList from "./components/talentList/TalentList";
-export default function Home() {
+import payloadConfig from "@/payload.config";
+import { getPayload } from "payload";
+import { Media } from "@/payload-types";
+import HomeCycle from "./components/homeCycle/HomeCycle";
+export default async function Home() {
+  const config = await payloadConfig;
+  const payload = await getPayload({ config });
+  const home = await payload.findGlobal({ slug: "Home" });
+  const talent = (await payload.find({ collection: "talent" })).docs;
+
+  // const video = home.video as Media;
   return (
     <main id="p_h">
       <section id="herovid">
@@ -9,16 +19,14 @@ export default function Home() {
           autoPlay
           loop
           muted
-          src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+          // src={video.url ?? undefined}
           id="vid"
         ></video>
         <a href="#hero" className="btn btn-scroll">
           <img src="/g/scrollbtn.png" alt="" />
         </a>
 
-        <div className="cycle">
-          <img src="/g/pch.png" alt="" className="item" />
-        </div>
+        <HomeCycle medias={home.corner} />
       </section>
       <section id="hero">
         <div className="text-scroll"></div>
@@ -91,13 +99,17 @@ export default function Home() {
           </article>
           <div className="r">
             <img src="/g/hero-card.png" alt="" className="card" />
-            <img src="/g/hero-art.png" alt="" className="ha" />
+            <img
+              src={(home?.ha as Media)?.url ?? "/g/hero-art.png"}
+              alt=""
+              className="ha"
+            />
           </div>
         </div>
         <img src="/d/grid1.png" alt="" className="dgrid" />
         <div className="text-scroll b"></div>
       </section>
-      <TalentList />
+      <TalentList tl={talent} />
     </main>
   );
 }

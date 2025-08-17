@@ -69,6 +69,9 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    talent: Talent;
+    staff: Staff;
+    news: News;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -77,6 +80,9 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    talent: TalentSelect<false> | TalentSelect<true>;
+    staff: StaffSelect<false> | StaffSelect<true>;
+    news: NewsSelect<false> | NewsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -86,9 +92,13 @@ export interface Config {
   };
   globals: {
     Home: Home;
+    audition: Audition;
+    guidelines: Guideline;
   };
   globalsSelect: {
     Home: HomeSelect<false> | HomeSelect<true>;
+    audition: AuditionSelect<false> | AuditionSelect<true>;
+    guidelines: GuidelinesSelect<false> | GuidelinesSelect<true>;
   };
   locale: null;
   user: User & {
@@ -162,6 +172,92 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "talent".
+ */
+export interface Talent {
+  id: string;
+  name: string;
+  slug: string;
+  /**
+   * Hex Color, ex: #000000
+   */
+  color: string;
+  title: string;
+  bio: string;
+  yt: {
+    url: string;
+    handle: string;
+  };
+  x: {
+    url: string;
+    handle: string;
+  };
+  nt?: (string | null) | Talent;
+  il?:
+    | {
+        title: string;
+        value: string;
+        id?: string | null;
+      }[]
+    | null;
+  list: string | Media;
+  pfp: string | Media;
+  main: string | Media;
+  sidet: string | Media;
+  sideb: string | Media;
+  voiceline: {
+    audio: string | Media;
+    voiceline: string;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "staff".
+ */
+export interface Staff {
+  id: string;
+  name: string;
+  role: string;
+  description: string;
+  image: string | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "news".
+ */
+export interface News {
+  id: string;
+  title: string;
+  /**
+   * Identifier, no space allowed, example: article-name
+   */
+  slug: string;
+  date: string;
+  banner?: (string | null) | Media;
+  article: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -174,6 +270,18 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'talent';
+        value: string | Talent;
+      } | null)
+    | ({
+        relationTo: 'staff';
+        value: string | Staff;
+      } | null)
+    | ({
+        relationTo: 'news';
+        value: string | News;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -259,6 +367,75 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "talent_select".
+ */
+export interface TalentSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  color?: T;
+  title?: T;
+  bio?: T;
+  yt?:
+    | T
+    | {
+        url?: T;
+        handle?: T;
+      };
+  x?:
+    | T
+    | {
+        url?: T;
+        handle?: T;
+      };
+  nt?: T;
+  il?:
+    | T
+    | {
+        title?: T;
+        value?: T;
+        id?: T;
+      };
+  list?: T;
+  pfp?: T;
+  main?: T;
+  sidet?: T;
+  sideb?: T;
+  voiceline?:
+    | T
+    | {
+        audio?: T;
+        voiceline?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "staff_select".
+ */
+export interface StaffSelect<T extends boolean = true> {
+  name?: T;
+  role?: T;
+  description?: T;
+  image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "news_select".
+ */
+export interface NewsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  date?: T;
+  banner?: T;
+  article?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents_select".
  */
 export interface PayloadLockedDocumentsSelect<T extends boolean = true> {
@@ -310,6 +487,48 @@ export interface Home {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "audition".
+ */
+export interface Audition {
+  id: string;
+  status?: boolean | null;
+  'status-text'?: string | null;
+  faq?:
+    | {
+        question?: string | null;
+        answer?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "guidelines".
+ */
+export interface Guideline {
+  id: string;
+  guideline?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "Home_select".
  */
 export interface HomeSelect<T extends boolean = true> {
@@ -322,6 +541,34 @@ export interface HomeSelect<T extends boolean = true> {
         id?: T;
       };
   ha?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "audition_select".
+ */
+export interface AuditionSelect<T extends boolean = true> {
+  status?: T;
+  'status-text'?: T;
+  faq?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "guidelines_select".
+ */
+export interface GuidelinesSelect<T extends boolean = true> {
+  guideline?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

@@ -2,8 +2,15 @@ import React from "react";
 
 type Props = {};
 import "./about.scss";
+import payloadConfig from "@/payload.config";
+import { getPayload } from "payload";
 
-export default function page({}: Props) {
+export default async function page({}: Props) {
+  const config = await payloadConfig;
+  const p = await getPayload({ config });
+  const staff = await p.find({
+    collection: "staff",
+  });
   return (
     <main id="p_about">
       <img src="/d/pkd.png" alt="" className="pkd pl" />
@@ -156,7 +163,17 @@ export default function page({}: Props) {
         </div>
         <div className="staff-l">
           <div className="pane">
-            <div className="btn staff">
+            {staff?.docs?.map((s) => {
+              return (
+                <div className="btn staff">
+                  <img src="/g/staffpch.png" alt="" className="art" />
+                  <p className="role">Role</p>
+                  <h2 className="n">Staff Name</h2>
+                  <p className="o">Anything and everything</p>
+                </div>
+              );
+            })}
+            {/* <div className="btn staff">
               <img src="/g/staffpch.png" alt="" className="art" />
               <p className="role">Role</p>
               <h2 className="n">Staff Name</h2>
@@ -179,13 +196,7 @@ export default function page({}: Props) {
               <p className="role">Role</p>
               <h2 className="n">Staff Name</h2>
               <p className="o">Anything and everything</p>
-            </div>
-            <div className="btn staff">
-              <img src="/g/staffpch.png" alt="" className="art" />
-              <p className="role">Role</p>
-              <h2 className="n">Staff Name</h2>
-              <p className="o">Anything and everything</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

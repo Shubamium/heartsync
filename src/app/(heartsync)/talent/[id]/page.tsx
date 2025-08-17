@@ -1,17 +1,48 @@
 import React, { CSSProperties } from "react";
 
-type Props = {};
 import "./talent.scss";
 import { FaArrowRight, FaYoutube } from "react-icons/fa";
 import Link from "next/link";
 import { CgPlayButton } from "react-icons/cg";
-export default function page({}: Props) {
+import payloadConfig from "@/payload.config";
+import { getPayload } from "payload";
+import { redirect } from "next/navigation";
+import { FaXTwitter } from "react-icons/fa6";
+import { Media, Talent } from "@/payload-types";
+import Voiceline from "./Voiceline";
+
+type Props = {
+  params: Promise<{
+    id: string;
+  }>;
+};
+
+export default async function page({ params }: Props) {
+  const { id } = await params;
+
+  const config = await payloadConfig;
+  const payload = await getPayload({ config });
+  const td = await payload.find({
+    collection: "talent",
+    where: {
+      slug: {
+        equals: id,
+      },
+    },
+  });
+  if (td?.docs[0] === undefined) {
+    redirect("/not-found");
+  }
+  const t = td.docs[0];
+
+  const nt = t?.nt as Talent;
+
   return (
     <main
-      id="p_tal"
+      id="p_tallist"
       style={
         {
-          "--bg": "#FFCFD7",
+          "--bg": t.color ?? "grey",
         } as CSSProperties
       }
     >
@@ -24,38 +55,29 @@ export default function page({}: Props) {
           <img src="/d/pkd.png" alt="" className="pkd" />
           <div className="info">
             <h2 className="name">
-              Kumu Cotton
+              {t.name}
               <img src="/d/empty-heart.png" alt="" className="eh" />
             </h2>
-            <p className="bio">
-              A silly matchmaker with a knack for finding herself in troublesome
-              situations. It’s amazing how she can be so mean, yet endearing.
-            </p>
+            <p className="bio">{t.bio}</p>
 
             <div className="contacts">
-              <a href="#" className="btn btn-tct">
-                <FaYoutube /> @KumuCotton
+              <a href={t?.yt.url} target="_blank" className="btn btn-tct">
+                <FaYoutube /> {t?.yt?.handle}
               </a>
-              <a href="#" className="btn btn-tct">
-                <FaYoutube /> @KumuCotton
+              <a href={t?.x.url} target="_blank" className="btn btn-tct x">
+                <FaXTwitter /> {t?.x?.handle}
               </a>
             </div>
           </div>
         </div>
         <div className="tal-art">
-          <img src="/g/pchsplash.png" alt="" className="tal" />
+          <img
+            src={(t?.main as Media).url ?? undefined}
+            alt=""
+            className="tal"
+          />
         </div>
-        <div className="voiceline">
-          <div className="line">
-            <p>
-              “Cotto~ I’m Kumu! Are you ready to meet your other half? Really?!
-              You’re taken? I don’t believe it.”
-            </p>
-          </div>
-          <button className="btn btn-play">
-            <CgPlayButton />
-          </button>
-        </div>
+        {t.voiceline && <Voiceline v={t.voiceline} />}
         <div className="strokebar"></div>
         <div className="r">
           <svg
@@ -79,7 +101,7 @@ export default function page({}: Props) {
             </defs>
           </svg>
 
-          <Link href="#" className="btn next-tal">
+          <Link href={"/talent/" + t?.slug} className="btn next-tal">
             <svg
               width="195"
               height="63"
@@ -126,36 +148,42 @@ export default function page({}: Props) {
               />
             </svg>
             <div className="info">
-              <h2>Siena Olena</h2>
+              <h2>{nt.name} </h2>
               <p>
                 View More <FaArrowRight />
               </p>
             </div>
-            <img src="/g/pfp.png" alt="" className="pfp" />
+            <img
+              src={(nt.pfp as Media)?.url ?? undefined}
+              alt=""
+              className="pfp"
+            />
           </Link>
 
           <div className="il">
-            <div className="i">
-              <h2>Birthday</h2>
-              <p>27 June</p>
-            </div>
-            <div className="i">
-              <h2>Birthday</h2>
-              <p>27 June</p>
-            </div>
-            <div className="i">
-              <h2>Birthday</h2>
-              <p>27 June</p>
-            </div>
+            {t?.il?.map((d, i) => (
+              <div className="i" key={d.id}>
+                <h2>{d?.title}</h2>
+                <p>{d?.value}</p>
+              </div>
+            ))}
           </div>
 
           <div className="tsides">
             <img src="/d/speech.png" alt="" className="spe" />
             <div className="top">
-              <img src="/g/tside.png" alt="" className="art" />
+              <img
+                src={(t?.sidet as Media).url ?? undefined}
+                alt=""
+                className="art"
+              />
             </div>
             <div className="top bottom">
-              <img src="/g/tside2.png" alt="" className="art" />
+              <img
+                src={(t?.sideb as Media).url ?? undefined}
+                alt=""
+                className="art"
+              />
             </div>
           </div>
         </div>

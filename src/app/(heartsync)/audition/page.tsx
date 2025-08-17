@@ -4,7 +4,15 @@ type Props = {};
 import "./audition.scss";
 import { FaCalendarXmark } from "react-icons/fa6";
 import { GoTriangleDown } from "react-icons/go";
-export default function page({}: Props) {
+import payloadConfig from "@/payload.config";
+import { getPayload } from "payload";
+import { BsHeartFill } from "react-icons/bs";
+import Dropdown from "./Dropdown";
+export default async function page({}: Props) {
+  const config = await payloadConfig;
+  const p = await getPayload({ config });
+  const a = await p.findGlobal({ slug: "audition" });
+
   return (
     <main id="p_audi">
       <section id="main">
@@ -19,13 +27,19 @@ export default function page({}: Props) {
               <h2 className="sh">HeartSync</h2>
               <h2 className="mh">AUDITIONS</h2>
               <div className="status">
-                <p>
-                  <FaCalendarXmark /> CLOSED
-                </p>
+                {!a.status ? (
+                  <>
+                    <FaCalendarXmark />
+                    <p>CLOSED</p>
+                  </>
+                ) : (
+                  <>
+                    <BsHeartFill />
+                    <p className="open">OPEN</p>
+                  </>
+                )}
               </div>
-              <p className="stat-text">
-                Our auditions are currently closed at the moment
-              </p>
+              <p className="stat-text">{a["status-text"]}</p>
             </div>
           </div>
         </div>
@@ -211,23 +225,16 @@ export default function page({}: Props) {
         </div>
         <div className="list">
           <div className="confine">
-            <div className="faq">
-              <div className="qp">
-                <p>Q. Am I able to join HeartSync with my current IP?”</p>
-                <button className="btn btn-drop">
-                  <GoTriangleDown />
-                </button>
-              </div>
-
-              <div className="ap">
-                <p>
-                  This will depend on a case by case basis. Please do not apply
-                  expecting to be able to continue streaming with your current
-                  IP under HeartSync.
-                </p>
-              </div>
-            </div>
-            <div className="faq">
+            {a?.faq?.map((fq, i) => {
+              return (
+                <Dropdown
+                  key={fq.id}
+                  q={fq.question ?? ""}
+                  a={fq.answer ?? ""}
+                ></Dropdown>
+              );
+            })}
+            {/* <div className="faq">
               <div className="qp">
                 <p>Q. Am I able to join HeartSync with my current IP?</p>
                 <button className="btn btn-drop">
@@ -258,7 +265,7 @@ export default function page({}: Props) {
                   IP under HeartSync.
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

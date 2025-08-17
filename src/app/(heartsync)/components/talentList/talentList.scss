@@ -88,7 +88,8 @@
           top: 20%;
           left: 0%;
           width: 100%;
-          background: url("/b/dots_1.png"), var(--br);
+          background: url("/b/dots_1.png"), var(--tc);
+          background-blend-mode: overlay;
           background-size: 200px;
           height: 80%;
           border-radius: 2em;
@@ -139,9 +140,9 @@
           height: 100%;
           scale: 0.8;
           // Left Decor
-          border-top: 10px solid var(--pp);
-          border-left: 10px solid var(--pp);
-          border-bottom: 10px solid var(--pp);
+          border-top: 10px solid var(--tc);
+          border-left: 10px solid var(--tc);
+          border-bottom: 10px solid var(--tc);
           transform-origin: top;
 
           transition: all 500ms ease;
@@ -155,9 +156,9 @@
           height: 100%;
           scale: 0.8;
           // Right Decor
-          border-top: 10px solid var(--pp);
-          border-right: 10px solid var(--pp);
-          border-bottom: 10px solid var(--pp);
+          border-top: 10px solid var(--tc);
+          border-right: 10px solid var(--tc);
+          border-bottom: 10px solid var(--tc);
           transition: all 500ms ease;
           transform-origin: top;
         }

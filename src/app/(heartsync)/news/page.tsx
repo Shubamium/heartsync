@@ -3,8 +3,17 @@ import React from "react";
 type Props = {};
 import "./news.scss";
 import Link from "next/link";
+import payloadConfig from "@/payload.config";
+import { getPayload } from "payload";
+import { Media, News } from "@/payload-types";
 
-export default function page({}: Props) {
+export default async function page({}: Props) {
+  const config = await payloadConfig;
+  const p = await getPayload({ config });
+  const nl = await p.find({
+    collection: "news",
+  });
+
   return (
     <main id="p_news">
       <section id="nh">
@@ -104,7 +113,18 @@ export default function page({}: Props) {
         </h2>
       </section>
       <div id="nl">
-        <Link href={"/news/read/id"} className="btn n">
+        {nl?.docs?.map((n: News) => (
+          <Link href={`/news/read/${n.slug}`} className="btn n" key={n.id}>
+            <img
+              src={(n.banner as Media)?.url ?? undefined}
+              alt=""
+              className="ban"
+            />
+            <p className="d">{new Date(n.date).toDateString()}</p>
+            <h2 className="t">{n.title}</h2>
+          </Link>
+        ))}
+        {/* <Link href={"/news/read/id"} className="btn n">
           <img src="/g/pch.png" alt="" className="ban" />
           <p className="d">14 Feb 2025</p>
           <h2 className="t">HEADLINE HERE</h2>
@@ -128,12 +148,7 @@ export default function page({}: Props) {
           <img src="/g/pch.png" alt="" className="ban" />
           <p className="d">14 Feb 2025</p>
           <h2 className="t">HEADLINE HERE</h2>
-        </Link>
-        <Link href={"/news/read/id"} className="btn n">
-          <img src="/g/pch.png" alt="" className="ban" />
-          <p className="d">14 Feb 2025</p>
-          <h2 className="t">HEADLINE HERE</h2>
-        </Link>
+        </Link> */}
       </div>
     </main>
   );

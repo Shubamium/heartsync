@@ -1,11 +1,16 @@
 "use client";
-import React from "react";
+import React, { CSSProperties } from "react";
 
-type Props = {};
 import "./talentList.scss";
 import { useRouter } from "next/navigation";
-export default function TalentList({}: Props) {
+import { Media, Talent } from "@/payload-types";
+
+type Props = {
+  tl: Talent[];
+};
+export default function TalentList({ tl }: Props) {
   const navigate = useRouter();
+
   return (
     <div id="talent-list">
       <div className="th">
@@ -103,7 +108,35 @@ export default function TalentList({}: Props) {
         </h2>
       </div>
       <div className="tl">
-        <div
+        {tl?.map((t, i) => {
+          return (
+            <div
+              className="tc"
+              onClick={() => {
+                navigate.push("/talent/" + t.slug);
+              }}
+              key={t.id + i}
+              style={
+                {
+                  "--tc": t.color,
+                } as CSSProperties
+              }
+            >
+              <div className="artpart">
+                <img
+                  src={(t?.list as Media).url ?? undefined}
+                  alt=""
+                  className="talart"
+                />
+              </div>
+              <div className="info">
+                <h2 className="n">{t.name}</h2>
+                <p className="t">{t.title}</p>
+              </div>
+            </div>
+          );
+        })}
+        {/* <div
           className="tc"
           onClick={() => {
             navigate.push("/talent/miki-kokoa");
@@ -130,21 +163,7 @@ export default function TalentList({}: Props) {
             <h2 className="n">Miki Kokoa</h2>
             <p className="t">Talent Title here</p>
           </div>
-        </div>
-        <div
-          className="tc"
-          onClick={() => {
-            navigate.push("/talent/miki-kokoa");
-          }}
-        >
-          <div className="artpart">
-            <img src="/g/tlpch.png" alt="" className="talart" />
-          </div>
-          <div className="info">
-            <h2 className="n">Miki Kokoa</h2>
-            <p className="t">Talent Title here</p>
-          </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

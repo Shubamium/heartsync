@@ -57,6 +57,18 @@
       @media screen and (max-width: 420px) {
         text-align: justify;
       }
+      ul,
+      ol {
+        padding-left: 3em;
+        margin-bottom: 1em;
+      }
+      p {
+        margin-bottom: 1em;
+      }
+      a {
+        color: var(--br);
+        text-decoration: underline;
+      }
     }
     .action {
       display: flex;

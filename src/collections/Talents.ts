@@ -2,6 +2,9 @@ import { CollectionConfig } from "payload";
 
 const Talents: CollectionConfig = {
   slug: "talent",
+  admin: {
+    useAsTitle: "name",
+  },
   fields: [
     {
       name: "name",
@@ -66,6 +69,12 @@ const Talents: CollectionConfig = {
       ],
     },
     {
+      name: "nt",
+      type: "relationship",
+      relationTo: "talent",
+      label: "Next Talent",
+    },
+    {
       name: "il",
       label: "Info List",
       type: "array",
@@ -111,7 +120,7 @@ const Talents: CollectionConfig = {
       required: true,
     },
     {
-      name: "sidet",
+      name: "sideb",
       label: "Side Art (Bottom)",
       type: "upload",
       relationTo: "media",
