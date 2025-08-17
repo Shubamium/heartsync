@@ -5,7 +5,7 @@ import { CSSProperties } from "react";
 import Header from "./components/Header";
 import LocalFont from "next/font/local";
 import Footer from "./components/footer/Footer";
-
+export const dynamic = "force-dynamic";
 const lt = LocalFont({
   src: [
     {
