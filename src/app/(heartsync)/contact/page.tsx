@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
 type Props = {};
 import "./contact.scss";
@@ -6,9 +7,17 @@ import { FaPaperPlane, FaYoutube } from "react-icons/fa";
 import { GiPaperPlane } from "react-icons/gi";
 import { BsAirplane } from "react-icons/bs";
 import { GoPaperAirplane } from "react-icons/go";
+import { submitForm } from "../util/util";
+import { BiLoaderCircle } from "react-icons/bi";
 export default function page({}: Props) {
+  const [l, setL] = useState(false);
+  const [s, setS] = useState("Loading . . .");
   return (
     <main id="p_contact">
+      <div className={`ctloading ${l ? "visible" : "closed"}`}>
+        <BiLoaderCircle />
+        <p>{s}</p>
+      </div>
       <section id="panel">
         <svg
           width="195"
@@ -124,7 +133,24 @@ export default function page({}: Props) {
             </a>
           </div>
         </div>
-        <form className="r">
+        <form
+          className="r"
+          onSubmit={async (e) => {
+            e.preventDefault();
+            const data = new FormData(e.currentTarget);
+            setL(true);
+            setS("Sending . . .");
+            const res = await submitForm(data);
+            if (res) {
+              setS("Message submitted, we will get back to you soon.");
+            } else {
+              setS("Something went wrong, please try again.");
+            }
+            setTimeout(() => {
+              setL(false);
+            }, 3000);
+          }}
+        >
           <div className="input">
             <label htmlFor="name">Name</label>
             <input
@@ -145,13 +171,16 @@ export default function page({}: Props) {
             <label htmlFor="name">Subject</label>
             <input
               type="text"
-              name="name"
+              name="subject"
               placeholder="Write your subject here . . ."
             />
           </div>
           <div className="input">
-            <label htmlFor="name">Message</label>
-            <textarea name="name" placeholder="Write your message here . . ." />
+            <label htmlFor="message">Message</label>
+            <textarea
+              name="message"
+              placeholder="Write your message here . . ."
+            />
           </div>
           <button className="btn send" type="submit">
             Send <GoPaperAirplane />
