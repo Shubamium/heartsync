@@ -145,6 +145,7 @@ export default function page({}: Props) {
             const res = await submitForm(data);
             if (res) {
               setS("Message submitted, we will get back to you soon.");
+              e.currentTarget.reset();
             } else {
               setS("Something went wrong, please try again.");
             }
