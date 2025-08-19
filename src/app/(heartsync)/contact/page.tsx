@@ -159,6 +159,7 @@ export default function page({}: Props) {
               type="text"
               name="name"
               placeholder="Write your name here . . ."
+              required
             />
           </div>
           <div className="input">
@@ -166,7 +167,8 @@ export default function page({}: Props) {
             <input
               type="email"
               name="email"
-              placeholder="Write your name here . . ."
+              placeholder="Write your email here . . ."
+              required
             />
           </div>
           <div className="input">
@@ -174,6 +176,7 @@ export default function page({}: Props) {
             <input
               type="text"
               name="subject"
+              required
               placeholder="Write your subject here . . ."
             />
           </div>
@@ -181,6 +184,7 @@ export default function page({}: Props) {
             <label htmlFor="message">Message</label>
             <textarea
               name="message"
+              required
               placeholder="Write your message here . . ."
             />
           </div>
