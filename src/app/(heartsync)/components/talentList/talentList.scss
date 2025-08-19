@@ -101,6 +101,9 @@
           transform: translateY(5%);
           position: relative;
           transition: all 500ms ease;
+          @media screen and (max-width: 420px) {
+            object-position: top;
+          }
         }
       }
 

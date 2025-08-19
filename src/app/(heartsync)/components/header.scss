@@ -15,11 +15,11 @@
   &::before {
     content: "";
     position: absolute;
-    top: -10%;
+    top: -5%;
     left: 0%;
     width: 100%;
     height: 100%;
-    background: url("/b/awning.png");
+    background: url("/b/awning.svg");
     // background: red;
     background-repeat: repeat-x;
     animation: awning 205s infinite linear;
@@ -111,13 +111,15 @@
       left: 0%;
       max-height: 130px;
       top: 0%;
+      height: 400px;
+      width: 100px;
     }
 
     .htr {
       position: absolute;
       right: 0%;
       top: 0%;
-      max-height: 130px;
+      height: 130px;
     }
     .btn-nav {
       color: var(--p);
@@ -159,7 +161,7 @@
           background-blend-mode: lighten;
           line-height: 1;
           outline: 3px solid var(--p);
-          rotate: -3deg;
+          // rotate: -3deg;
           outline-offset: 5px;
         }
       }

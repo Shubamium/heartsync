@@ -5,10 +5,12 @@ type Props = {};
 import "./contact.scss";
 import { FaPaperPlane, FaYoutube } from "react-icons/fa";
 import { GiPaperPlane } from "react-icons/gi";
-import { BsAirplane } from "react-icons/bs";
+import { BsAirplane, BsDiscord } from "react-icons/bs";
 import { GoPaperAirplane } from "react-icons/go";
 import { submitForm } from "../util/util";
 import { BiLoaderCircle } from "react-icons/bi";
+import { FaXTwitter } from "react-icons/fa6";
+
 export default function page({}: Props) {
   const [l, setL] = useState(false);
   const [s, setS] = useState("Loading . . .");
@@ -126,10 +128,10 @@ export default function page({}: Props) {
               <FaYoutube />
             </a>
             <a href="#" className="btn btn-soc">
-              <FaYoutube />
+              <FaXTwitter />
             </a>
             <a href="#" className="btn btn-soc">
-              <FaYoutube />
+              <BsDiscord />
             </a>
           </div>
         </div>

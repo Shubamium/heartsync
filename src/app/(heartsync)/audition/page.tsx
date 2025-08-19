@@ -8,6 +8,11 @@ import payloadConfig from "@/payload.config";
 import { getPayload } from "payload";
 import { BsHeartFill } from "react-icons/bs";
 import Dropdown from "./Dropdown";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Audition | HeartSync",
+};
 export default async function page({}: Props) {
   const config = await payloadConfig;
   const p = await getPayload({ config });

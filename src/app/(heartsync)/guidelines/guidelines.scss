@@ -9,16 +9,30 @@
     display: grid;
     grid-template-columns: 1fr 2.5fr;
     gap: 1em;
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+    }
+    @media screen and (max-width: 500px) {
+      padding-bottom: 100px;
+    }
     .sh {
       color: var(--p);
       font-size: 1.5rem;
       line-height: 0.9;
       font-family: var(--fontG);
+      @media screen and (max-width: 420px) {
+        text-align: center;
+      }
     }
     .mh {
       font-size: 3rem;
       color: var(--br);
       line-height: 0.9;
+      @media screen and (max-width: 420px) {
+        font-size: 2rem;
+        text-align: center;
+      }
     }
     .ph {
       position: sticky;
@@ -35,15 +49,27 @@
         text-decoration: underline;
         margin-top: 1em;
         margin-bottom: 0.25em;
+        @media screen and (max-width: 500px) {
+          font-size: 1.2rem;
+        }
       }
       h2 {
         margin-top: 1em;
+        @media screen and (max-width: 500px) {
+          font-size: 1.1rem;
+        }
       }
       p {
         margin-bottom: 1em;
+        @media screen and (max-width: 420px) {
+          text-align: justify;
+        }
       }
       ul {
         padding-left: 2em;
+        @media screen and (max-width: 500px) {
+          padding-left: 1em;
+        }
       }
       hr {
         background: var(--pp);

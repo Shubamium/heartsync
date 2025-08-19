@@ -4,7 +4,11 @@ type Props = {};
 import "./about.scss";
 import payloadConfig from "@/payload.config";
 import { getPayload } from "payload";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "About | HeartSync",
+};
 export default async function page({}: Props) {
   const config = await payloadConfig;
   const p = await getPayload({ config });
@@ -167,9 +171,9 @@ export default async function page({}: Props) {
               return (
                 <div className="btn staff">
                   <img src="/g/staffpch.png" alt="" className="art" />
-                  <p className="role">Role</p>
-                  <h2 className="n">Staff Name</h2>
-                  <p className="o">Anything and everything</p>
+                  <p className="role">{s.role}</p>
+                  <h2 className="n">{s.name}</h2>
+                  <p className="o">{s.description}</p>
                 </div>
               );
             })}

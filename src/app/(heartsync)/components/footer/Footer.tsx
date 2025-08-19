@@ -2,6 +2,8 @@ import React from "react";
 import "./footer.scss";
 import Link from "next/link";
 import { FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { BsDiscord } from "react-icons/bs";
 type Props = {};
 
 export default function Footer({}: Props) {
@@ -24,7 +26,9 @@ export default function Footer({}: Props) {
         </Link>
       </div>
       <div className="center">
-        <img src="/g/footerico.png" alt="" className="ico" />
+        <a href="#header">
+          <img src="/g/footerico.svg" alt="" className="btn ico" />
+        </a>
         <svg
           width="195"
           height="63"
@@ -77,10 +81,10 @@ export default function Footer({}: Props) {
               <FaYoutube />
             </a>
             <a href="#" className="btn btn-socials">
-              <FaYoutube />
+              <FaXTwitter />
             </a>
             <a href="#" className="btn btn-socials">
-              <FaYoutube />
+              <BsDiscord />
             </a>
           </div>
           <div className="attrib">

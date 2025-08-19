@@ -8,8 +8,22 @@
     .btn-scroll {
       position: absolute;
       left: 1%;
-      bottom: 0%;
+      bottom: 5%;
       transform-origin: bottom;
+
+      #ArrowContainer {
+        #Arrow {
+          animation: down 2.2s infinite linear;
+          @keyframes down {
+            from {
+              transform: translateY(-200px);
+            }
+            to {
+              transform: translateY(200px);
+            }
+          }
+        }
+      }
       @media screen and (max-width: 1280px) {
         height: 300px;
       }
@@ -25,6 +39,7 @@
       background: var(--p);
       aspect-ratio: 16 / 9;
       object-fit: cover;
+      height: 90vh;
       margin-bottom: -6px;
     }
 
@@ -329,7 +344,7 @@
           margin-top: -50px;
         }
         .card {
-          animation: sway 2s infinite ease-in-out alternate-reverse;
+          // animation: sway 2s infinite ease-in-out alternate-reverse;
           filter: drop-shadow(0px 12px 0px rgba(97, 19, 58, 0.212));
           width: 100%;
           height: 100%;

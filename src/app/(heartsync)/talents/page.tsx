@@ -5,6 +5,13 @@ type Props = {};
 import "./talents.scss";
 import { getPayload } from "payload";
 import payloadConfig from "@/payload.config";
+
+export async function generateMetadata() {
+  return {
+    title: "Talents | HeartSync",
+  };
+}
+
 export default async function page({}: Props) {
   const config = await payloadConfig;
   const p = await getPayload({ config });

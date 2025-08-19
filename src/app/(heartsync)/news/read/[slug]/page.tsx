@@ -7,6 +7,7 @@ import payloadConfig from "@/payload.config";
 import { getPayload } from "payload";
 import { Media } from "@/payload-types";
 import { RichText } from "@payloadcms/richtext-lexical/react";
+import { desc } from "motion/react-client";
 
 type Props = {
   params: Promise<{
@@ -14,6 +15,30 @@ type Props = {
   }>;
 };
 
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+  const config = await payloadConfig;
+  const p = await getPayload({ config });
+  const n = await p.find({
+    collection: "news",
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+  });
+  const nd = n.docs[0];
+  const banner = nd.banner as Media;
+  return {
+    title: `${nd.title} | HeartSync`,
+    openGraph: {
+      images: [banner?.url ?? undefined],
+    },
+    twitter: {
+      images: [banner?.url ?? undefined],
+    },
+  };
+}
 export default async function page({ params }: Props) {
   const { slug } = await params;
   const config = await payloadConfig;

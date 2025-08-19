@@ -7,6 +7,9 @@ import payloadConfig from "@/payload.config";
 import { getPayload } from "payload";
 import { Media, News } from "@/payload-types";
 
+export const metadata = {
+  title: "News | HeartSync",
+};
 export default async function page({}: Props) {
   const config = await payloadConfig;
   const p = await getPayload({ config });

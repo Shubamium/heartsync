@@ -6,6 +6,11 @@ import payloadConfig from "@/payload.config";
 import { getPayload } from "payload";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
+
+export const metadata = {
+  title: "Guidelines | HeartSync",
+};
+
 export default async function page({}: Props) {
   const config = await payloadConfig;
   const p = await getPayload({ config });
