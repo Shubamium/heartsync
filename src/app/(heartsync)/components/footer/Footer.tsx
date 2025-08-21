@@ -22,7 +22,7 @@ export default function Footer({}: Props) {
           Talents
         </Link>
         <Link href={"/contact"} className="btn btn-add">
-          Contacts
+          Contact
         </Link>
       </div>
       <div className="center">
