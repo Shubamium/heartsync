@@ -118,20 +118,20 @@ export default function page({}: Props) {
           <h2 className="sh">REACH OUT</h2>
           <h2 className="mh">CONTACT US</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation{" "}
+            We will do our most to get back to you within 5 business days.
+            Please specify in the subject if you're seeking to collab or work
+            with us.
           </p>
 
           <div className="socials">
-            <a href="#" className="btn btn-soc">
+            <a
+              href="https://youtube.com/@HeartSyncLive"
+              className="btn btn-soc"
+            >
               <FaYoutube />
             </a>
-            <a href="#" className="btn btn-soc">
+            <a href="https://x.com/HeartSyncLive" className="btn btn-soc">
               <FaXTwitter />
-            </a>
-            <a href="#" className="btn btn-soc">
-              <BsDiscord />
             </a>
           </div>
         </div>

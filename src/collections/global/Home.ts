@@ -36,6 +36,8 @@ const Home: GlobalConfig = {
       label: "Hero Art",
       type: "upload",
       relationTo: "media",
+      hasMany: true,
+      required: true,
     },
   ],
 };

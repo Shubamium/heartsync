@@ -110,33 +110,52 @@
   }
 
   #requirements {
-    max-width: 95%;
-    margin: 100px auto;
-    background: white;
-    border-radius: 1em;
-    padding: 2% 5%;
     position: relative;
     top: 0%;
     .arl {
       position: absolute;
       left: 0%;
+      top: 0%;
       height: 100%;
-      transform: translateX(-70%);
+      scale: 1 0.8;
+      transform-origin: left;
+      max-width: 100px;
+      @media screen and (max-width: 1440px) {
+        max-width: 40px;
+      }
       @media screen and (max-width: 500px) {
         display: none;
       }
     }
     .arr {
       position: absolute;
-      transform: translateX(70%);
-      scale: -1;
+      scale: -1 0.8;
       right: 0%;
+      top: 0%;
+      transform-origin: center;
+      translate: 5%;
+      // rotate: 180deg;
       height: 100%;
+      max-width: 100px;
+      @media screen and (max-width: 1440px) {
+        max-width: 40px;
+      }
       @media screen and (max-width: 500px) {
         display: none;
       }
     }
 
+    .content {
+      max-width: 95%;
+      margin: 100px auto;
+      background: white;
+      border-radius: 3em;
+      padding: 2% 5%;
+
+      @media screen and (max-width: 500px) {
+        border-radius: 1em;
+      }
+    }
     .rh {
       background: var(--pp);
       text-align: center;
@@ -187,7 +206,7 @@
   }
   #timeline {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
     padding: 7%;
     color: var(--dr);
     gap: 2em;
@@ -217,13 +236,17 @@
       scale: 0.9;
     }
     .l {
-      rotate: -3deg;
+      rotate: -2deg;
       display: flex;
       flex-direction: column;
       gap: 1em;
+      padding-left: 5%;
+      position: relative;
+      z-index: 10;
       @media screen and (max-width: 500px) {
         rotate: -1deg;
       }
+
       .time {
         background: white;
         border: 2px solid var(--br);
@@ -234,6 +257,12 @@
         padding-right: 15%;
         cursor: initial;
         display: block;
+        h2 {
+          font-size: 2rem;
+        }
+        p {
+          font-size: 1.2rem;
+        }
         &:nth-child(2) {
           transform: translateX(10%);
           @media screen and (max-width: 500px) {
@@ -281,6 +310,9 @@
     .r {
       text-align: right;
       rotate: -2deg;
+      @media screen and (max-width: 1024px) {
+        margin-bottom: -150px;
+      }
       .sh {
         font-size: 3rem;
         color: var(--dp);

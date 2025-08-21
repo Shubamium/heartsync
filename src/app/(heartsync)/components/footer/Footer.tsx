@@ -15,13 +15,13 @@ export default function Footer({}: Props) {
         <Link href={"/guidelines"} className="btn btn-add">
           Guidelines
         </Link>
-        <Link href={"/privacy"} className="btn btn-add">
+        <Link href={"/privacy-policy"} className="btn btn-add">
           Privacy Policy
         </Link>
         <Link href={"/talents"} className="btn btn-add">
           Talents
         </Link>
-        <Link href={"/contacts"} className="btn btn-add">
+        <Link href={"/contact"} className="btn btn-add">
           Contacts
         </Link>
       </div>
@@ -77,15 +77,18 @@ export default function Footer({}: Props) {
 
         <div className="socials">
           <div className="st">
-            <a href="#" className="btn btn-socials">
+            <a
+              href="https://youtube.com/@HeartSyncLive"
+              className="btn btn-socials"
+            >
               <FaYoutube />
             </a>
-            <a href="#" className="btn btn-socials">
+            <a href="https://x.com/HeartSyncLive" className="btn btn-socials">
               <FaXTwitter />
             </a>
-            <a href="#" className="btn btn-socials">
+            {/* <a href="#" className="btn btn-socials">
               <BsDiscord />
-            </a>
+            </a> */}
           </div>
           <div className="attrib">
             <p>

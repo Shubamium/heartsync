@@ -6,6 +6,7 @@ import payloadConfig from "@/payload.config";
 import { getPayload } from "payload";
 import { Metadata } from "next";
 import { Media } from "@/payload-types";
+import { RichText } from "@payloadcms/richtext-lexical/react";
 
 export const metadata: Metadata = {
   title: "About | HeartSync",
@@ -16,6 +17,11 @@ export default async function page({}: Props) {
   const staff = await p.find({
     collection: "staff",
   });
+
+  const about = await p.findGlobal({ slug: "about" });
+  const sal = about.sal as Media;
+  const sar = about.sar as Media;
+
   return (
     <main id="p_about">
       <img src="/d/pkd.png" alt="" className="pkd pl" />
@@ -73,7 +79,8 @@ export default async function page({}: Props) {
                   />
                 </svg>
               </h2>
-              <p>
+              <RichText data={about.mission} />
+              {/* <p>
                 HeartSync is a talent agency that focuses on content that
                 provides comfort to the world. Each of our talents have their
                 own unique sense and style, HeartSync aims to enable our talents
@@ -82,7 +89,7 @@ export default async function page({}: Props) {
               <p>
                 We strive to provide a comfortable experience for our talents
                 since they are the forefront of our mission
-              </p>
+              </p> */}
             </div>
           </div>
           <div className="r">
@@ -92,12 +99,13 @@ export default async function page({}: Props) {
       </section>
       <section id="story">
         <div className="panel">
-          <img src="/g/stl.png" alt="" className="stl" />
+          <img src={sal.url ?? "/g/stl.png"} alt="" className="stl" />
           <div className="content">
             <img src="/d/star2.png" alt="" className="star" />
             <h2 className="sh">OUR</h2>
             <h2 className="h">STORY</h2>
-            <p>
+            <RichText data={about.story} />
+            {/* <p>
               In our darkest times, humans tend to seek comfort. After years of
               feeling lost in our lives we start to find passions and dreams,
               HeartSync was one of those dreams. We exist to create a place for
@@ -105,9 +113,9 @@ export default async function page({}: Props) {
               everywhere. A spark starts a flame, and flames burn brightest when
               nurtured. HeartSync works to nurture sparks into heart engulfing
               flames
-            </p>
+            </p> */}
           </div>
-          <img src="/g/str.png" alt="" className="str" />
+          <img src={sar.url ?? "/g/str.png"} alt="" className="str" />
         </div>
       </section>
       <section id="staff">
@@ -171,12 +179,17 @@ export default async function page({}: Props) {
             {staff?.docs?.map((s) => {
               const im = s.image as Media;
               return (
-                <div className="btn staff" key={s.id}>
+                <a
+                  href={s.link ?? "#"}
+                  target="_blank"
+                  className="btn staff"
+                  key={s.id}
+                >
                   <img src={im.url ?? undefined} alt="" className="art" />
                   <p className="role">{s.role}</p>
                   <h2 className="n">{s.name}</h2>
                   <p className="o">{s.description}</p>
-                </div>
+                </a>
               );
             })}
             {/* <div className="btn staff">

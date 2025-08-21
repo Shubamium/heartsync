@@ -36,7 +36,7 @@ const gluten = Gluten({
   weight: "400",
 });
 
-const title = "Heart Sync";
+const title = "HeartSync";
 
 const description = "HeartSync official website.";
 const banner =

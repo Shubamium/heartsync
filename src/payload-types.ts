@@ -92,13 +92,17 @@ export interface Config {
   };
   globals: {
     Home: Home;
+    about: About;
     audition: Audition;
     guidelines: Guideline;
+    'privacy-policy': PrivacyPolicy;
   };
   globalsSelect: {
     Home: HomeSelect<false> | HomeSelect<true>;
+    about: AboutSelect<false> | AboutSelect<true>;
     audition: AuditionSelect<false> | AuditionSelect<true>;
     guidelines: GuidelinesSelect<false> | GuidelinesSelect<true>;
+    'privacy-policy': PrivacyPolicySelect<false> | PrivacyPolicySelect<true>;
   };
   locale: null;
   user: User & {
@@ -219,6 +223,7 @@ export interface Talent {
 export interface Staff {
   id: string;
   name: string;
+  link: string;
   role: string;
   description: string;
   image: string | Media;
@@ -415,6 +420,7 @@ export interface TalentSelect<T extends boolean = true> {
  */
 export interface StaffSelect<T extends boolean = true> {
   name?: T;
+  link?: T;
   role?: T;
   description?: T;
   image?: T;
@@ -481,7 +487,48 @@ export interface Home {
     url?: string | null;
     id?: string | null;
   }[];
-  ha?: (string | null) | Media;
+  ha: (string | Media)[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about".
+ */
+export interface About {
+  id: string;
+  mission: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  story: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  sal: string | Media;
+  sar: string | Media;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -529,6 +576,30 @@ export interface Guideline {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "privacy-policy".
+ */
+export interface PrivacyPolicy {
+  id: string;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "Home_select".
  */
 export interface HomeSelect<T extends boolean = true> {
@@ -541,6 +612,19 @@ export interface HomeSelect<T extends boolean = true> {
         id?: T;
       };
   ha?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about_select".
+ */
+export interface AboutSelect<T extends boolean = true> {
+  mission?: T;
+  story?: T;
+  sal?: T;
+  sar?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -569,6 +653,16 @@ export interface AuditionSelect<T extends boolean = true> {
  */
 export interface GuidelinesSelect<T extends boolean = true> {
   guideline?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "privacy-policy_select".
+ */
+export interface PrivacyPolicySelect<T extends boolean = true> {
+  text?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

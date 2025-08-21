@@ -19,6 +19,8 @@ import Talents from "./collections/Talents";
 import Audition from "./collections/global/Audition";
 import News from "./collections/News";
 import Guidelines from "./collections/global/Guidelines";
+import About from "./collections/global/About";
+import PrivacyPolicy from "./collections/global/PrivacyPolicy";
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -27,7 +29,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Talents, staff, News],
-  globals: [Home, Audition, Guidelines],
+  globals: [Home, About, Audition, Guidelines, PrivacyPolicy],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

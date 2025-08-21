@@ -54,27 +54,29 @@ export default async function page({}: Props) {
         <img src="/d/arl.png" alt="" className="arl" />
         <img src="/d/arl.png" alt="" className="arr" />
 
-        <div className="rh">
-          <h2>REQUIREMENTS</h2>
-        </div>
-        <div className="rg">
-          <div className="r">
-            <p>Must be aged 18 or older.</p>
+        <div className="content">
+          <div className="rh">
+            <h2>REQUIREMENTS</h2>
+          </div>
+          <div className="rg">
+            <div className="r">
+              <p>Must be aged 18 or older.</p>
+            </div>
+            <div className="r">
+              <p>Female presenting applicants only.</p>
+            </div>
+          </div>
+          <div className="rg">
+            <div className="r">
+              <p>Nationality does not matter.</p>
+            </div>
+            <div className="r">
+              <p>Fluency in the English language.</p>
+            </div>
           </div>
           <div className="r">
-            <p>Female presenting applicants only.</p>
+            A clear vision for the kind of creator you wish to be.
           </div>
-        </div>
-        <div className="rg">
-          <div className="r">
-            <p>Nationality does not matter.</p>
-          </div>
-          <div className="r">
-            <p>Fluency in the English language..</p>
-          </div>
-        </div>
-        <div className="r">
-          A clear vision for the kind of creator you wish to be.
         </div>
       </section>
       <section id="timeline">
@@ -138,7 +140,7 @@ export default async function page({}: Props) {
               Chosen applicants will then be asked to assist in building a brand
               for themselves that best fits them and the character they will
               portray. Training and production of assets will happen at this
-              stage
+              stage.
             </p>
           </div>
           <div className="btn time">
@@ -167,7 +169,7 @@ export default async function page({}: Props) {
             <h2 className="t">Debut</h2>
             <p className="d">
               The talents will be able to start producing public content under
-              the identity that is built under
+              the identity that is built under HeartSync.
             </p>
           </div>
         </div>

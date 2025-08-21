@@ -12,6 +12,11 @@ const staff: CollectionConfig = {
       required: true,
     },
     {
+      name: "link",
+      type: "text",
+      required: true,
+    },
+    {
       name: "role",
       type: "text",
       required: true,
