@@ -171,7 +171,7 @@ export default async function page({}: Props) {
             {staff?.docs?.map((s) => {
               const im = s.image as Media;
               return (
-                <div className="btn staff">
+                <div className="btn staff" key={s.id}>
                   <img src={im.url ?? undefined} alt="" className="art" />
                   <p className="role">{s.role}</p>
                   <h2 className="n">{s.name}</h2>
