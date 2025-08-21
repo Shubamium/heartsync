@@ -22,7 +22,7 @@ export default function HeroSection({ art }: Props) {
           <h2 className="hb">BEAT IN SYNC</h2>
           <p>
             In our world, sometimes all you need is to
-            <strong>&nbsp; feel the heart of another</strong>. Our mission is to
+            <strong>&nbsp;feel the heart of another</strong>. Our mission is to
             connect fans with streamers on an even deeper level, letting us all
             feel as one.
           </p>
