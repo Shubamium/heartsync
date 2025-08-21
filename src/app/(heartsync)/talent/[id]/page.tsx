@@ -127,7 +127,7 @@ export default async function page({ params }: Props) {
               </defs>
             </svg>
 
-            <Link href={"/talent/" + t?.slug} className="btn next-tal">
+            <Link href={"/talent/" + nt?.slug} className="btn next-tal">
               <svg
                 width="195"
                 height="63"

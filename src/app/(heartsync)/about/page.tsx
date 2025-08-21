@@ -5,6 +5,7 @@ import "./about.scss";
 import payloadConfig from "@/payload.config";
 import { getPayload } from "payload";
 import { Metadata } from "next";
+import { Media } from "@/payload-types";
 
 export const metadata: Metadata = {
   title: "About | HeartSync",
@@ -168,9 +169,10 @@ export default async function page({}: Props) {
         <div className="staff-l">
           <div className="pane">
             {staff?.docs?.map((s) => {
+              const im = s.image as Media;
               return (
                 <div className="btn staff">
-                  <img src="/g/staffpch.png" alt="" className="art" />
+                  <img src={im.url ?? undefined} alt="" className="art" />
                   <p className="role">{s.role}</p>
                   <h2 className="n">{s.name}</h2>
                   <p className="o">{s.description}</p>
