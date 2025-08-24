@@ -31,9 +31,9 @@ export default function Header({}: Props) {
           <GiHamburgerMenu />
         </button>
         <nav id="right">
-          <Link className="btn btn-nav" href={"shop.heartsync-live.com"}>
+          <a className="btn btn-nav" href={"https://shop.heartsync-live.com"}>
             Store
-          </Link>
+          </a>
           <Link className="btn btn-nav" href={"/audition"}>
             Audition
           </Link>
@@ -62,9 +62,9 @@ export default function Header({}: Props) {
         <Link className="btn btn-nav" href={"/news"}>
           News
         </Link>
-        <Link className="btn btn-nav" href={"shop.heartsync-live.com"}>
+        <a className="btn btn-nav" href={"https://shop.heartsync-live.com"}>
           Store
-        </Link>
+        </a>
         <Link className="btn btn-nav" href={"/audition"}>
           Audition
         </Link>

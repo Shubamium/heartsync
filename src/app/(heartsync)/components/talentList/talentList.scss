@@ -58,18 +58,21 @@
       @media screen and (max-width: 420px) {
         width: 100%;
       }
-      &:hover {
-        .artpart {
-          .talart {
-            transform: translateY(0%);
+
+      @media screen and (min-width: 768px) {
+        &:hover {
+          .artpart {
+            .talart {
+              transform: translateY(0%);
+            }
           }
-        }
-        .info {
-          &::before {
-            border-color: var(--dp);
-          }
-          &::after {
-            border-color: var(--dp);
+          .info {
+            &::before {
+              border-color: var(--dp);
+            }
+            &::after {
+              border-color: var(--dp);
+            }
           }
         }
       }
