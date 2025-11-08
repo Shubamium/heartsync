@@ -18,7 +18,7 @@ export default async function Home() {
   const home = await payload.findGlobal({ slug: "Home" });
   const talent = (await payload.find({ collection: "talent" })).docs;
 
-  // const video = home.video as Media;
+  const video = home.video as Media;
   const ha = home.ha as Media[];
   const randomHa = ha[Math.floor(Math.random() * ha.length)];
   return (
@@ -28,7 +28,7 @@ export default async function Home() {
           autoPlay
           loop
           muted
-          // src={video.url ?? undefined}
+          src={video.url ?? undefined}
           id="vid"
         ></video>
         <a href="#hero" className="btn btn-scroll">
