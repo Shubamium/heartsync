@@ -4,7 +4,7 @@ const title = "Heart Sync";
 
 const description = "HeartSync official website.";
 const banner =
-  "https://shubastore.caprover.venmi.art/api/public/dl/qZrRuJU2?inline=true";
+  "https://shubastore.venmiart.com/api/public/dl/qZrRuJU2?inline=true";
 const url = "heartsync-live.com";
 
 export const metadata: Metadata = {
@@ -27,6 +27,6 @@ export const metadata: Metadata = {
   description: description,
   keywords:
     "HeartSync, Virtual Youtuber, VTuber Agency, VTuber, Heart Sync, Kumu Cotton, Siena Olena, Miki Kokoa".split(
-      ","
+      ",",
     ),
 };
