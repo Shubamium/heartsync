@@ -45,7 +45,9 @@ export default buildConfig({
     s3Storage({
       bucket: "heart-sync",
       collections: {
-        media: true,
+        media: {
+          disablePayloadAccessControl: true,
+        },
       },
       clientUploads: true,
 
